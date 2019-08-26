@@ -1,0 +1,31 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: kafka-exporter
+  name: kafka-exporter
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kafka-exporter
+  template:
+    metadata:
+      labels:
+        app: kafka-exporter
+    spec:
+      containers:
+      - envFrom:
+        - secretRef:
+            name: kafka-exporter
+        image: dfdsdk/kafka-exporter:0.1.0
+        name: kafka-exporter
+        resources:
+          limits:
+            cpu: 400m
+            memory: 256Mi
+          requests:
+            cpu: 200m
+            memory: 64Mi
