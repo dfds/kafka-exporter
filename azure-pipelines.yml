@@ -20,8 +20,6 @@ steps:
   tokenSuffix: ')'
   env:
     SASL_PASSWORD: $(SASL_PASSWORD)
-
-steps:
 - task: Kubernetes@1
   displayName: kubectl apply manifests
   inputs:
