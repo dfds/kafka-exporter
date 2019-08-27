@@ -26,4 +26,4 @@ steps:
     connectionType: Kubernetes Service Connection
     kubernetesServiceEndpoint: "Kubernetes-Hellman monitoring deploy"
     command: apply
-    arguments: -f /k8s
+    arguments: -f k8s/
