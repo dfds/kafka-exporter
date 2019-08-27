@@ -20,6 +20,9 @@ steps:
     tokenSuffix: ')'
   env:
     SASL_PASSWORD: $(SASL_PASSWORD)
+- bash:
+    cat k8s/secret.yaml
+  displayName: bashy command
 - task: Kubernetes@1
   displayName: kubectl apply manifests
   inputs:
