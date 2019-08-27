@@ -15,9 +15,9 @@ steps:
     rootDirectory: '$(System.DefaultWorkingDirectory)/k8s'
     targetFiles: '*.yaml'
     escapeType: none
-  actionOnMissing: fail
-  tokenPrefix: '$('
-  tokenSuffix: ')'
+    actionOnMissing: fail
+    tokenPrefix: '$('
+    tokenSuffix: ')'
   env:
     SASL_PASSWORD: $(SASL_PASSWORD)
 - task: Kubernetes@1
