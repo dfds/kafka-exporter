@@ -1,0 +1,31 @@
+# Pipeline deploying Kafka-exporter in monitoring namespace
+
+trigger:
+  branches:
+    include:
+    - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: qetza.replacetokens.replacetokens-task.replacetokens@3
+  displayName: 'Replace tokens in *.yaml'
+  inputs:
+    rootDirectory: '$(System.DefaultWorkingDirectory)/k8s'
+    targetFiles: '*.yaml'
+    escapeType: none
+  actionOnMissing: fail
+  tokenPrefix: '$('
+  tokenSuffix: ')'
+  env:
+    SASL_PASSWORD: $(SASL_PASSWORD)
+
+steps:
+- task: Kubernetes@1
+  displayName: kubectl apply manifests
+  inputs:
+    connectionType: Kubernetes Service Connection
+    kubernetesServiceEndpoint: "Kubernetes-Hellman monitoring deploy"
+    command: apply
+    arguments: -f /k8s
