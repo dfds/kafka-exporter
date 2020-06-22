@@ -20,8 +20,13 @@ spec:
       - envFrom:
         - secretRef:
             name: kafka-exporter
-        image: dfdsdk/kafka-exporter:0.1.0
+        image: dfdsdk/kafka-exporter:0.1.1
         name: kafka-exporter
+        env:
+        - name: TOPIC_FILTER
+          value: "build.*"
+        - name: GROUP_FILTER
+          value: "build.*"
         resources:
           limits:
             cpu: 400m
