@@ -24,9 +24,9 @@ spec:
         name: kafka-exporter
         env:
         - name: TOPIC_FILTER
-          value: "build.*"
+          value: ".*"
         - name: GROUP_FILTER
-          value: "build.*"
+          value: ".*"
         resources:
           limits:
             cpu: 400m
