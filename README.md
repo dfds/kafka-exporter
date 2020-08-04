@@ -11,5 +11,5 @@ Following environment variables needs to be set when running the container.
 | KAFKA_SERVER        | Addresses (host:port) of Kafka server. |
 | SASL_USERNAME       | SASL user name.                        |
 | SASL_PASSWORD       | SASL user password.                    |
-| TOPIC_FILTER        | Filter to include topics (for all use ".*" |
-| GROUP_FILTER        | Filter to include consumergroups (for all use "." |
+| TOPIC_FILTER        | Filter to include topics (for all use `".*"`) |
+| GROUP_FILTER        | Filter to include consumergroups (for all use `".*"`) |
