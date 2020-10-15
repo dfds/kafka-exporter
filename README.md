@@ -13,3 +13,8 @@ Following environment variables needs to be set when running the container.
 | SASL_PASSWORD       | SASL user password.                    |
 | TOPIC_FILTER        | Filter to include topics (for all use `".*"`) |
 | GROUP_FILTER        | Filter to include consumergroups (for all use `".*"`) |
+
+
+## Deployment prerequisites
+
+If the scoped service account is missing for deployment, see https://wiki.dfds.cloud/en/teams/devex/selfservice/Kubernetes-ops-deployment-setup

@@ -29,6 +29,6 @@ steps:
   displayName: kubectl apply manifests
   inputs:
     connectionType: Kubernetes Service Connection
-    kubernetesServiceEndpoint: Kubernetes-Hellman
+    kubernetesServiceEndpoint: Kubernetes-Hellman-ops-deploy
     command: apply
     arguments: -f k8s/
