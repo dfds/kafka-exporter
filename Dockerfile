@@ -1,4 +1,4 @@
-FROM danielqsj/kafka-exporter
+FROM danielqsj/kafka-exporter:latest
 
 COPY ./run-exporter.sh .
 
