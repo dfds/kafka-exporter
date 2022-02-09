@@ -20,7 +20,7 @@ spec:
       - envFrom:
         - secretRef:
             name: kafka-exporter
-        image: dfdsdk/kafka-exporter:0.1.1
+        image: dfdsdk/kafka-exporter:0.1.2
         name: kafka-exporter
         env:
         - name: TOPIC_FILTER
