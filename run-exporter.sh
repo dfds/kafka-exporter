@@ -5,7 +5,6 @@
 --sasl.username=${SASL_USERNAME} \
 --sasl.password=${SASL_PASSWORD} \
 --tls.ca-file=/etc/ssl/certs/ca-certificates.crt \
---kafka.version=3.0.0 \
 --sasl.enabled \
 --topic.filter=${TOPIC_FILTER} \
 --group.filter=${GROUP_FILTER} \
