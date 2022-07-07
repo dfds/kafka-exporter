@@ -18,3 +18,18 @@ Following environment variables needs to be set when running the container.
 ## Deployment prerequisites
 
 If the scoped service account is missing for deployment, see https://wiki.dfds.cloud/en/teams/devex/selfservice/Kubernetes-ops-deployment-setup
+
+### ServiceAccount
+
+Create a ServiceAccount in Confluent Cloud and assign it the MetricsViewer role.
+
+Add the following ACLs to the Service Account:
+
+|Scope | ID/Name |Permission | Operation | Pattern |
+|------|---------|-----------|-----------|---------|
+|Cluster | kafka-cluster | ALLOW | DESCRIBE |LITERAL|
+|Cluster | kafka-cluster |ALLOW | DESCRIBE_CONFIG |LITERAL|
+|Consumer Group | * | ALLOW | DESCRIBE |LITERAL|
+|Consumer Group | * | ALLOW | DESCRIBE |PREFIX|
+|Topic | * | ALLOW | DESCRIBE |LITERAL|
+|Topic | * | ALLOW | DESCRIBE |PREFIX|
