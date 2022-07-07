@@ -21,9 +21,11 @@ If the scoped service account is missing for deployment, see https://wiki.dfds.c
 
 ### ServiceAccount
 
-Create a ServiceAccount in Confluent Cloud and assign it the MetricsViewer role.
+1. Create a ServiceAccount in Confluent Cloud and assign it the MetricsViewer role.
 
-Add the following ACLs to the Service Account:
+2. In the cluster, under Integrations, API Keys, create a new API key that will be owned by the Service Account.
+
+3. Add the following ACLs to new API Key owned by the new Service Account:
 
 |Scope | ID/Name |Permission | Operation | Pattern |
 |------|---------|-----------|-----------|---------|
@@ -33,3 +35,5 @@ Add the following ACLs to the Service Account:
 |Consumer Group | * | ALLOW | DESCRIBE |PREFIX|
 |Topic | * | ALLOW | DESCRIBE |LITERAL|
 |Topic | * | ALLOW | DESCRIBE |PREFIX|
+
+
