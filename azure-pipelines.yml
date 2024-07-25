@@ -1,4 +1,4 @@
-# Pipeline deploying Kafka-exporter in monitoring namespace
+# Pipeline deploying Kafka-exporter
 
 trigger:
   branches:
