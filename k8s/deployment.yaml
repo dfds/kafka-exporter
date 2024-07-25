@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kafka-exporter
   name: kafka-exporter
-  namespace: monitoring
+  namespace: grafana
 spec:
   replicas: 1
   selector:
