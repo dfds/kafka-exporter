@@ -1,0 +1,87 @@
+replicaCount: 1
+managedByHelm: true
+environment: "develop"
+
+image:
+  repository: dfdsdk/kafka-exporter
+  pullPolicy: Always
+  tag: "v1.8.0"
+
+app:
+  config:
+    kafkaSecretRef: kafka-exporter
+
+  cluster:
+    environment: production
+    id: xja-f9a1
+
+  environment:
+    - name: TOPIC_FILTER
+      value: ".*"
+    - name: GROUP_FILTER
+      value: ".*"
+  serviceAccount:
+    # Specifies whether a service account should be created
+    create: true
+    # Annotations to add to the service account
+    annotations: {}
+    # The name of the service account to use.
+    # If not set and create is true, a name is generated using the fullname template
+    name: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  awsRoleArn: ""
+  # Annotations to add to the service account
+  annotations:
+    eks.amazonaws.com/sts-regional-endpoints: "true"
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  metricsPort: 9308
+  scrapeMetrics: true
+
+ingress:
+  enabled: false
+  annotations: {}
+  match: Host(`localhost`)
+  matches:
+    - name: kafka-exporter
+      match: Host(`build.dfds.cloud`) && PathPrefix(`/api`)
+      priority: 101
+      prefix: "/api"
+    - name: kafka-exporter-pub
+      match: Host(`api.hellman.oxygen.dfds.cloud`) && PathPrefix(`/ssu/api`)
+      prefix: "/ssu/api"
+  middlewares: []
+  services: []
+  routes: []
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "200m"
+  limits:
+    memory: "256Mi"
+    cpu: "400m"
+
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
