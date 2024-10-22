@@ -9,4 +9,5 @@
 --topic.filter=${TOPIC_FILTER} \
 --group.filter=${GROUP_FILTER} \
 --sasl.mechanism=plain \
---tls.enabled
+--tls.enabled \
+--kafka.labels=${LABELS}
