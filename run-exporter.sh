@@ -11,4 +11,5 @@
 --group.filter=${GROUP_FILTER} \
 --sasl.mechanism=plain \
 --tls.enabled \
---kafka.labels=${LABELS}
+--kafka.labels=${LABELS} \
+--refresh.metadata=${REFRESH_METADATA}
