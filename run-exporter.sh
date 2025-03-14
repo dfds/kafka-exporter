@@ -7,6 +7,7 @@
 --tls.ca-file=/etc/ssl/certs/ca-certificates.crt \
 --sasl.enabled \
 --topic.filter=${TOPIC_FILTER} \
+--topic.exclude=${TOPIC_EXCLUDE} \
 --group.filter=${GROUP_FILTER} \
 --sasl.mechanism=plain \
 --tls.enabled \
