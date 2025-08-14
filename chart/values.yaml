@@ -5,7 +5,7 @@ environment: "develop"
 image:
   repository: dfdsdk/kafka-exporter
   pullPolicy: Always
-  tag: "v1.8.3"
+  tag: "v1.8.2"
 
 app:
   config:
@@ -78,7 +78,6 @@ resources:
   limits:
     memory: "256Mi"
     cpu: "400m"
-
 
 nodeSelector: {}
 
