@@ -21,7 +21,7 @@ app:
     - name: GROUP_FILTER
       value: ".*"
     - name: REFRESH_METADATA
-      value: 300s
+      value: "300s"
   serviceAccount:
     # Specifies whether a service account should be created
     create: true
