@@ -79,10 +79,11 @@ resources:
     cpu: "200m"
   limits:
     memory: "256Mi"
-    cpu: "400m"
 
 nodeSelector: {}
 
 tolerations: []
 
 affinity: {}
+
+priorityClassName: ""
