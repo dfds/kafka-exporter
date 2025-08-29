@@ -3,20 +3,30 @@ name: build tag
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   deploy:
-    name:  '01 - Linux'
+    name: "01 - Linux"
     runs-on: [ubuntu-24.04]
     strategy:
       matrix:
-        arch: ['x86_64']
+        arch: ["x86_64"]
     defaults:
       run:
         shell: bash
     steps:
       - uses: actions/checkout@v5
+
+      - name: Load credentials from 1Password
+        uses: 1password/load-secrets-action@v3
+        with:
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_GITHUB_TOKEN }}
+          DOCKERHUB_USERNAME: op://CloudEng-General/Docker Cloud/username
+          DOCKERHUB_TOKEN: op://CloudEng-General/Docker Cloud/Github Actions Token
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -24,8 +34,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ env.DOCKERHUB_TOKEN }}
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
