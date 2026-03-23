@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Load credentials from 1Password
-        uses: 1password/load-secrets-action@v3
+        uses: 1password/load-secrets-action@v4
         with:
           export-env: true
         env:
